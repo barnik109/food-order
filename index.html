@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function placeorder()
+        {
+    document.getElementById("ord sum").style.display="block";
+    
+    urname=document.getElementById('name');
+    mobile=document.getElementById("mobile");l
+    burger=document.getElementById("optnburger");
+    roller=document.getElementById("optnroller");
+    fries=document.getElementById("optnfries");
+    
+    var mcost=0;
+    var acost=0;
+    var mname=" ";
+    var aname=" ";
+   if(burger.checked)
+   {
+   mcost=120;
+   mname=burger.value;
+   }
+   if(roller.checked)
+   {
+   mcost=100;
+   mname=roller.value;
+   }
+   if(burger.checked)
+   {
+   mcost=120;
+   mname=burger.value;
+   }
+   if(fries.checked)
+   {
+   acost=60;
+   mcost+=acost;
+   aname+=fries.value+"<br>"
+   }
+   document.getElementById('lblname').innerHTML=urname.value;
+   document.getElementById("lblmob").innerHTML=mobile.value;
+   document.getElementById("lblmeal").innerHTML=mname;
+   document.getElementById("lblbill").innerHTML=mcost;
+   document.getElementById("adon").innerHTML=aname;
+  }
+    </script>
+</head>
+<body>
+    <div class="mcnt">
+       <table width="800" border="2" cellspacing="4" cellpadding="4" align="center" id="ordlst">
+           <tr>
+               <td colspan="2">
+                   <img src="" width="100" height="100">
+               </td>
+           </tr>
+           <tr>
+               <td colspan="2"><b>Customer Details</b></td>
+           </tr>
+           <tr>
+               <td>Customer Name</td>
+               <td><input type="text" id="name"></td>
+           </tr>
+           <tr>
+            <td>Mobile</td>
+            <td><input type="text" id="mobile"></td>
+        </tr>
+        <tr>
+            <h2><td colspan="2"><b>Select a meal</b></td></h2>
+        </tr>
+        <tr>
+            <td>
+                <img src="burger.jpg" width="100" height="100">
+                <br>
+                <input type="radio" name="meal" id="optnburger" value="burger">Burger(&#8377;120/-)
+            </td>
+            <td>
+                <img src="roller.jpg" width="100" height="100">
+                <br>
+                <input type="radio" name="meal" id="optnroller" value="roller">Roller(&#8377;100/-)
+            </td>
+        </tr>
+        <tr>
+            <h2><td colspan="2"><b>Ad-on's</b></td></h2>
+        </tr>
+        <tr>
+            <td>
+                <img src="fries.jpg" width="100" height="100">
+                <br>
+                <input type="checkbox" value="largefries" id="optnfries">Large Fries(&#8377;60/-)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Place Order" onclick="placeorder()">
+            </td>
+        </tr>
+       </table>
+       <br>
+       <dl id="ord sum">
+           <h2>Order Summary</h2>
+           <dt>Customer Name</dt>
+           <dd id="lblname"></dd>
+           <dt>Mobile</dt>
+           <dd id="lblmob"></dd>
+           <dt>Meal</dt>
+           <dd id="lblmeal"></dd>
+           <dt>Ad on's</dt>
+           <dd id="adon"></dd>
+           <dt>Total Bill:</dt>
+           <dd id=lblbill></dd>
+           <br>
+           <input type="button" value="Print Bill" onclick="window.print()">
+       </dl>
+    </div>
+</body>
+</html>
